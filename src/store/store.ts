@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import BookSlice from './slices/bookingSlice'
+import stadiumSlice from './slices/stadiumSlice'
 
 export const store = configureStore({
   reducer: {
-    BookSlice,
+    stadiumSlice,
   },
 })
 

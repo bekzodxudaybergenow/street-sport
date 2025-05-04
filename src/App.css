@@ -1,42 +1,49 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0 2rem;
   text-align: center;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.btn {
+  background-color: #34C52D;
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  border: 1px solid #34C52D !important;
+  padding: 20px 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn:hover {
+  color: #34C52D !important;
+  background-color: #34C52D;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.modal .ant-modal-content{
+  padding: 50px 30px !important;
 }
-
-.card {
-  padding: 2em;
+.input {
+  height: 40px;
 }
-
-.read-the-docs {
-  color: #888;
+.input:hover {
+  border-color: #34C52D !important;   
+}
+.input:focus {
+  border-color: #388E3C !important;   
+  box-shadow: 0 0 0 2px rgba(16, 238, 24, .3);
+}
+.modal .ant-btn-primary {
+  background-color: #34C52D !important;
+  border-color: #34C52D !important;
+}
+.modal .ant-btn-primary:hover {
+  background-color: #33df2a !important;
+}
+.modal .ant-btn-default {
+  color: #34C52D !important;
+  border-color: #34C52D !important;
+}
+.modal .ant-btn-default:hover {
+  color: #fff !important;
+  background-color: #34C52D !important;
+  border-color: #34C52D !important;
 }
