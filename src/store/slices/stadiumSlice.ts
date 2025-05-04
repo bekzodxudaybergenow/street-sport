@@ -8,28 +8,29 @@ export const initialState: IStadiumType = {
         {
             name: 'Sariq devni minib',
             address: 'Xudoyberdi To\'xtaboyev',
-            price: 200_000
+            price: 200_000,
+            url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcpOjmqQtce_aPC1oXztYtkH7R7jGRx_pxRg&s'
         },
-        {
-            name: 'Sariq devni minib',
-            address: 'Xudoyberdi To\'xtaboyev',
-            price: 200_000
-        },
-        {
-            name: 'Sariq devni minib',
-            address: 'Xudoyberdi To\'xtaboyev',
-            price: 200_000
-        },
-        {
-            name: 'Sariq devni minib',
-            address: 'Xudoyberdi To\'xtaboyev',
-            price: 200_000
-        },
-        {
-            name: 'Sariq devni minib',
-            address: 'Xudoyberdi To\'xtaboyev',
-            price: 200_000
-        }
+        // {
+        //     name: 'Sariq devni minib',
+        //     address: 'Xudoyberdi To\'xtaboyev',
+        //     price: 200_000
+        // },
+        // {
+        //     name: 'Sariq devni minib',
+        //     address: 'Xudoyberdi To\'xtaboyev',
+        //     price: 200_000
+        // },
+        // {
+        //     name: 'Sariq devni minib',
+        //     address: 'Xudoyberdi To\'xtaboyev',
+        //     price: 200_000
+        // },
+        // {
+        //     name: 'Sariq devni minib',
+        //     address: 'Xudoyberdi To\'xtaboyev',
+        //     price: 200_000
+        // }
 
     ]
 }

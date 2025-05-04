@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { IStadium } from './types';
 
 import logo from '../public/logo.png';
-import stadion1 from '../public/stadions/stadion-1.png';
+// import stadion1 from '../public/stadions/stadion-1.png';
 
 function App() {
   const stadiumSlice = useSelector((store: RootState) => store.stadiumSlice);
@@ -22,15 +22,15 @@ function App() {
   const [editIndex, setEditIndex] = useState<number | null>(null);
 
   const addStadiumHandle = () => {
-    setAddStadiumData({ name: '', address: '', price: 0 });
+    setAddStadiumData({ name: '', address: '', price: 0, url: ''});
     setAdd(true);
   };
 
   const handleSaveAddedStadium = () => {
-    if (addStadiumData && addStadiumData.name && addStadiumData.address && addStadiumData.price) {
+    if (addStadiumData && addStadiumData.name && addStadiumData.address && addStadiumData.price && addStadiumData?.url) {
       dispatch(addStadium(addStadiumData));
       setAdd(false);
-      setAddStadiumData({ name: '', address: '', price: 0 });
+      setAddStadiumData({ name: '', address: '', price: 0, url: '' });
     } else {
       alert("Iltimos, barcha maydonlarni to'ldiring.");
     }
@@ -84,7 +84,7 @@ function App() {
         {
           stadiumSlice.stadium.map((stadion, idx) => (
             <div key={idx} className='group w-[260px] h-[320px] relative rounded-[5px] overflow-hidden shadow-[0px_0px_40px_rgba(0,0,0,.1)] cursor-pointer'>
-              <img className='absolute z-[-1] w-[100%] h-[100%] object-cover' src={stadion1} alt="Stadion rasmi" />
+              <img className='absolute z-[-1] w-[100%] h-[100%] object-cover' src={stadion.url} alt="Stadion rasmi" />
               <div className='flex flex-col items-start px-4 py-5 text-white absolute bottom-0 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-t from-black/40 to-transparent w-full h-full justify-end'>
                 <h2 className='font-[600] text-[22px] m-0'>{stadion.name}</h2>
                 <a className='flex items-center gap-x-2 text-[14px] text-gray-400 hover:text-gray-300 duration-300 mb-0 leading-4' href="/">
@@ -93,7 +93,7 @@ function App() {
                 </a>
                 <p className='flex gap-x-[8px] text-[24px] text-[#0d9817f5] font-[800]'>Narxi: <span className='font-[400] text-white'>{stadion.price} so'm</span></p>
               </div>
-              <div className='flex flex-col items-center gap-y-4 absolute top-6 left-4 text-gray-200 shadow-[0px_0px_50px_rgba(0,0,0,.5)] lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300'>
+              <div className='flex flex-col items-center gap-y-4 absolute top-6 left-4 text-gray-200 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300'>
                 <FaEdit className='ml-1 cursor-pointer hover:text-white duration-300' fontSize={20} onClick={() => editStadiumHandle(idx)} />
                 <RiDeleteBinLine className='cursor-pointer hover:text-white duration-300' fontSize={24} onClick={() => dispatch(deleteStadium(idx))} />
               </div>
@@ -111,54 +111,78 @@ function App() {
         open={isAdd}
         onCancel={() => setAdd(false)}
         onOk={handleSaveAddedStadium}
+        okButtonProps={{ size: 'large' }}
+        cancelButtonProps={{ size: 'large' }}
       >
         <Input
           className='input'
           value={addStadiumData?.name || ''}
           onChange={(e) => handleAddInputChange('name', e.target.value)}
           placeholder="Stadion nomi"
+          style={{ marginTop: '10px' }}
         />
         <Input
           className='input'
           value={addStadiumData?.address || ''}
           onChange={(e) => handleAddInputChange('address', e.target.value)}
-          placeholder="Manzil"
+          placeholder="Stadion manzili"
           style={{ marginTop: '20px' }}
         />
         <Input
           className='input'
-          value={addStadiumData?.price.toString() || ''}
+          value={addStadiumData?.price ? addStadiumData.price.toString() : ''}
           onChange={(e) => handleAddInputChange('price', Number(e.target.value))}
-          placeholder="Narx"
+          placeholder="Stadion narxi"
           style={{ marginTop: '20px' }}
+        />
+         <Input
+          className='input'
+          value={addStadiumData?.url || ''}
+          onChange={(e) => handleAddInputChange('url', e.target.value)}
+          placeholder="Stadion rasmi"
+          style={{ marginTop: '20px', marginBottom: '15px' }}
         />
       </Modal>
 
       {/* Edit Modal */}
       <Modal
+        className='modal'
         title="Stadion ma'lumotlarini tahrirlash"
         okText='Saqlash'
         cancelText='Bekor qilish'
         open={isEdit}
         onCancel={() => setEdit(false)}
         onOk={handleSaveEditedStadium}
+        okButtonProps={{ size: 'large' }}
+        cancelButtonProps={{ size: 'large' }}
       >
         <Input
+          className='input'
           value={editStadiumData?.name || ''}
           onChange={(e) => handleInputChange('name', e.target.value)}
           placeholder="Stadion nomi"
+          style={{ marginTop: '10px' }}
         />
         <Input
+          className='input'
           value={editStadiumData?.address || ''}
           onChange={(e) => handleInputChange('address', e.target.value)}
           placeholder="Manzil"
-          style={{ marginTop: '10px' }}
+          style={{ marginTop: '20px' }}
         />
         <Input
+          className='input'
           value={editStadiumData?.price.toString() || ''}
           onChange={(e) => handleInputChange('price', Number(e.target.value))}
           placeholder="Narx"
-          style={{ marginTop: '10px' }}
+          style={{ marginTop: '20px' }}
+        />
+         <Input
+          className='input'
+          value={editStadiumData?.url || ''}
+          onChange={(e) => handleInputChange('url', e.target.value)}
+          placeholder="Stadion rasmi"
+          style={{ marginTop: '20px', marginBottom: '15px' }}
         />
       </Modal>
 
