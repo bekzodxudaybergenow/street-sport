@@ -1,4 +1,9 @@
 # React + TypeScript + Vite
+Vercel: [View](https://street-sport.vercel.app/)
+
+Asosiy: Typescript, Reactjs, Redux toolkit dan foydalanildi
+
+![StreetSport](https://github.com/bekzodxudaybergenow/street-sport/blob/master/public/street-sport1.png)
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
