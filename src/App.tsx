@@ -9,7 +9,6 @@ import { useState } from 'react';
 import { IStadium } from './types';
 
 import logo from '../public/logo.png';
-// import stadion1 from '../public/stadions/stadion-1.png';
 
 function App() {
   const stadiumSlice = useSelector((store: RootState) => store.stadiumSlice);
@@ -74,8 +73,8 @@ function App() {
 
   return (
     <div className='flex flex-col min-h-screen'>
-      <div className='flex items-center justify-between mb-0 mt-8'>
-        <img className='cursor-pointer' src={logo} alt="Logo" />
+      <div className='flex items-center justify-between mb-0 mt-8 '>
+        <img className='w-[130px] cursor-pointer sm:w-[160px]' src={logo} alt="Logo" />
         <Button className='btn' onClick={addStadiumHandle}>Stadion qo'shish</Button>
       </div>
       <hr className='text-[#f0eded] mt-10 mb-15' />
@@ -187,7 +186,7 @@ function App() {
       </Modal>
 
       <hr className='text-[#f0eded] mt-20 mb-10' />
-      <div className='flex justify-between mb-10'>
+      <div className='flex flex-col justify-between mb-10 sm:flex-row'>
         <p className='text-gray-800'><b>Email:</b> <a className='text-[#34C52D] hover:text-[#31f327] duration-300' href="/">info@streetsport.uz</a></p>
         <p className='text-gray-800'><b>Telefon:</b> <a href="/">+998 88 123 12 82</a></p>
       </div>
